@@ -58,7 +58,14 @@ L’hashing power complessivo al momento dell’analisi corrente è circa 275 Te
 La suddivisione riportata in seguito è datata 02/08/2018, è limitatamente indicativa nel tempo e presenta un margine d’errore di qualche punto percentuale: i dati istantanei sulla distribuzione dell’hashing power sulla rete sono molto variabili poiché l’unico modo per ottenerli sono delle stime effettuate sulla base della velocità del network nel processare i nuovi blocchi e delle indicazioni fornite dai pools stessi. Tuttavia la loro osservazione fornisce dati utili per comprendere meglio i risultati delle analisi.
 
 
-[litecoinpool.org]
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/HashingPower020818}
+	\caption{dati 02/08/2018 litecoinpool.org}
+	\label{fig:hashingpower020818}
+\end{figure}
+
+
 \subsection{Obiettivo dell’analisi}
 Verificare la distribuzione del potere di mining nel tempo: ci sono pools che superano il 50\% di hashing power? Per il mantenimento della decentralizzazione della Blockchain è importante che questo non accada perché si configurerebbe il rischio di un cosiddetto 51\% attack: quando qualcuno riesce a disporre di una potenza di calcolo superiore al 50\% del totale, può creare blocchi non rispondenti alle specifiche del protocollo della criptovaluta, tra cui ad esempio blocchi contraffatti con i quali spendere due volte gli stessi token o addirittura impedire ad altri miner di validare il blocco al fine di incassare le reward.
 
@@ -92,9 +99,24 @@ ORDER BY Blocks DESC;
 
 Su un totale di 312432 blocchi di cui ci è noto il miner, possiamo fare le seguenti osservazioni:
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/top5miners}
+	\caption{}
+	\label{fig:top5miners}
+\end{figure}
+
 
 I primi 5 miners hanno complessivamente minato 265756 blocchi. Risulta quindi che l’85\% dell’hashing power dei blocchi di miner noto sia concentrato nei primi 5. 
 F2Pool, noto anche come DiscusFish e attivo dal 2013 su BTC, ETH e altre criptovalute, è stato uno dei primi pools importanti ad interessarsi a Litecoin e domina totalmente il computo totale con un impressionante 53.64\% dei blocchi noti della blockchain. Correntemente ha un hashing power che si attesta intorno al 20\% del totale.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/top5miners2016vs2018}
+	\caption{}
+	\label{fig:top5miners2016vs2018}
+\end{figure}
+
 
 
 Il confronto tra i dati del 2016 e i dati (ovviamente parziali) del 2018 evidenziano il cambio di distribuzione del mining di Litecoin: se da un lato la maggior distribuzione dei blocchi minati tra i mining pools indica una migliore decentralizzazione, dall’altro evidenzia che i miners indipendenti o i piccoli pools sono praticamente scomparsi a causa dell’aumento della difficoltà, correntemente > 10.000.000.
@@ -103,8 +125,14 @@ Infatti se nel 2014 201587 blocchi risultano minati da ignoti su un totale di 21
 
 A tal proposito va detto che a causa della variabilità degli identificatori utilizzati nonché del suddetto bug di LitecoinJ risulta difficile l’identificazione di alcuni blocchi, soprattutto da parte di AntPool e occasionalmente BW.COM, più di rado F2Pool, che appaiono sottodimensionati nei risultati delle mie analisi. È stato possibile effettuare delle analisi manuali sulle transazioni deserializzate per intervalli molto limitati della blockchain che confermano un’ampia presenza dei suddetti pools.
 
-In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concentrato nelle mani dei pools noti con la seguente suddivisione
+In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concentrato nelle mani dei pools noti con la suddivisione in figura 3.6.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/distribuzionemining}
+	\caption{blocchi per miner 2017, dati ottenuti tramite BlockAPI}
+	\label{fig:distribuzionemining}
+\end{figure}
 
 
 \section{Merged Mining}
@@ -112,6 +140,14 @@ In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concent
 Il merged mining, noto anche come Auxiliary Proof of Work, permette di minare contemporaneamente due criptovalute che utilizzino lo stesso algoritmo di hashing (Scrypt nel caso di Litecoin).
 I calcoli vengono svolti e sfruttati per due blockchain, il che permette alle blockchain minori di aumentare il proprio potere di hashing. In questo caso il merged mining riguarda Litecoin e Dogecoin, entrambe criptovalute il cui mining è basato su Scrypt.
 Ho identificato il pattern esadecimale [fabe6d6d] che viene inserito nella coinbase per segnalare che il blocco è frutto di merged mining.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/mergedminingdiagramsemanticscholar}
+	\caption{Funzionamento del merged mining, fonte Semantic Scholar}
+	\label{fig:mergedminingdiagramsemanticscholar}
+\end{figure}
+
 \subsection{Obiettivo dell’analisi}
 Identificare quanti blocchi vengano ottenuti tramite merged mining e chi li ha minati, la diffusione della pratica nel corso degli anni.
 \subsection{Svolgimento}
@@ -129,8 +165,31 @@ GROUP BY MM?;
 Nel 2018, 62046 blocchi su un totale di 63434 il cui pool è noto e/o rilevabile dal tool sono minati con merged mining. È il 98.37\%, da cui deduciamo che ormai la quasi totalità dei mining pools adotta questo sistema.
 
 
-
-
+\begin{tabular}{|l|c|}
+	\hline 
+	\textbf{Year} & \textbf{MM\%} \\ 
+	\hline 
+	2014 & 31.29 \\ 
+	\hline 
+	2015 & 87.61 \\ 
+	\hline 
+	2016 & 98.27 \\ 
+	\hline 
+	2017 & 97.96 \\ 
+	\hline 
+	2018 & 97.82 \\ 
+	\hline 
+\end{tabular}
+ 
+\begin{tabular}{|c|c|}
+	\hline 
+	\textbf{Blocks2018} & \textbf{MM?} \\ 
+	\hline 
+	1388 & No \\ 
+	\hline
+	62406 & Yes \\
+	\hline
+\end{tabular}
 
 
 Per ogni singolo anno (i dati prima del 2014 non sono significativi) si possono vedere affiancati in proporzione i blocchi frutto di merged mining (grigio) e non (arancione).
@@ -207,7 +266,6 @@ Il problema si è posto con la crescita dell’interesse verso l’utilizzo dell
 
 
 
-Courtesy of bitcoinnews.com
 
 La condizione necessaria affinché il sistema SegWit funzioni è l’adozione da parte di almeno il 95\% del network e la segnalazione dell’adozione del sistema da parte dei miners è fondamentale per ritenere il consenso necessario all’implementazione del soft fork.
 
@@ -217,8 +275,13 @@ Identificare tramite pattern noti i metaprotocolli utilizzati e l’header di ad
 \subsection{Svolgimento}
 Si identificano le transazioni OP\_RETURN della blockchain. BlockAPI contiene una lista di pattern conosciuti utilizzati anche su Bitcoin ai quali ho aggiunto alcuni pattern scoperti tramite ricerca e consultazione dei siti ufficiali dei fornitori dei servizi.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/ol-omnilayer-medium}
+	\caption{Struttura di un OP\_RETURN di Omni Layer (medium.com)}
+	\label{fig:ol-omnilayer-medium}
+\end{figure}
 
-A titolo d’esempio, la struttura di un OP\_RETURN di Omni Layer.
 Su ciascuna di esse, in modo analogo a quanto fatto sulle coinbase per l’analisi dei mining pools, si effettua un parsing dell’output tramite il seguente script:
 
 \begin{lstlisting}
@@ -264,7 +327,51 @@ L’header della transazione “aa21a9ed” è un codice non-ascii che segnala l
 
 Un primo conto significativo si può effettuare per dividere gli OP\_RETURN utilizzati allo scopo di segnalare SegWit da quelli utilizzati per qualsiasi altro scopo: come abbiamo detto è possibile utilizzarli per introdurre altri servizi esterni alla blockchain, ma anche per ancorare un messaggio in modo permanente alla blockchain seppur meno diffusamente di quanto accada su Bitcoin, nel quale la funzionalità viene sfruttata da molto più tempo.
 
+\begin{tabular}{|c|c|}
+	\hline 
+	\textbf{Segwit?} & \textbf{TxCount} \\ 
+	\hline 
+	No & 24559 \\ 
+	\hline 
+	Yes & 234476 \\ 
+	\hline 
+\end{tabular} 
+
+\begin{tabular}{|c|c|}
+	\hline 
+	\textbf{protocol}& \textbf{count}  \\ 
+	\hline 
+unknown	&  12381\\ 
+	\hline 
+copyrobo	&  7433\\ 
+	\hline 
+stampery	& 3577 \\ 
+	\hline 
+proofstack	& 967 \\ 
+	\hline 
+colu	& 69 \\ 
+	\hline 
+omni	& 67 \\ 
+	\hline 
+counterparty	& 35 \\ 
+	\hline 
+openassets	& 26 \\ 
+	\hline 
+blockstore	& 2 \\ 
+	\hline 
+empty	& 1 \\ 
+	\hline 
+proofofexistence	& 1 \\ 
+	\hline 
+\end{tabular} 
+
 Esaminiamo ora gli OP\_RETURN utilizzati per uno scopo diverso dalla segnalazione di SegWit: approssimativamente il 50\% non denota l’utilizzo di un metaprotocollo specifico. Questo numero include OP\_RETURNs che contengono messaggi testuali, stringhe la cui decodifica non corrisponde ad alcun ascii, eventualmente codificati in base-64 o in altro modo, e infine protocolli a noi ancora non noti o di cui non è stato possibile trovare un riscontro affidabile sul web.
 La diffusione dei vari protocolli nel restante 50\% è riportata nella tabella.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/distribuzioneopreturn}
+	\caption{}
+	\label{fig:distribuzioneopreturn}
+\end{figure}
 

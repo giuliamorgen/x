@@ -68,11 +68,10 @@ La blockchain è un registro pubblico e distribuito che tiene traccia di tutte l
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1.0\linewidth]{SimplifiedBlockchainBlockGeeks}
-\caption{}
+\caption{Image courtesy of blockgeeks.com}
 \label{fig:simplifiedblockchainblockgeeks}
 \end{figure}
 
-[Image courtesy of blockgeeks.com]
 
 La blockchain è una lista concatenata che contiene dati e un hash pointer che punta al blocco precedente. Un hash pointer differisce da un normale puntatore perché invece di limitarsi a contenere l’indirizzo del blocco precedente contiene anche l’hash dei dati del blocco che punta. Nel caso di Bitcoin, inoltre, la funzione di hashing viene applicata doppiamente nell’header in due casi.\\
 
@@ -83,12 +82,14 @@ La blockchain è una lista concatenata che contiene dati e un hash pointer che p
 \begin{tabular}{|c|c|c|c|}
 	\hline
 	\textbf{Bytes} &       \textbf{Name}        & \textbf{Data Type} &                     \textbf{Description}                     \\ \hline
-	      4        &          version           &      int32\_t      &   Indicates which set of block validation rules to follow.   \\ \hline
-	      32       & previous block header hash &      char[32]      &            A hash of the previous block’s header.            \\ \hline
-	      32       &      merkle root hash      &      char[32]      &                A hash in internal byte order.                \\ \hline
-	      4        &            time            &     uint32\_t      & A Unix epoch time when the miner started hashing the header. \\ \hline
-	      4        &           nBits            &     uint32\_t      &  \\ \hline
-	      4        &           nonce            &     uint32\_t      &  \\ \hline
+	      4        &          version           &      int32\_t      &   Indica il set di regole utilizzato per la validazione del blocco.   \\ \hline
+	      32       & previous block header hash &      char[32]      &            Hash dell'header del blocco precedente           \\ \hline
+	      32       &      merkle root hash      &      char[32]      &                Hash in internal byte order derivato dagli hash delle transazioni.                \\ \hline
+	      4        &            time            &     uint32\_t      & Unix timestamp del momento in cui il miner ha iniziato l'hashing dell'header \\ \hline
+	      4        &           nBits            &     uint32\_t      &  
+	      Codifica del valore target per la validazione dell'hash\\ \hline
+	      4        &           nonce            &     uint32\_t      & 
+	      Numero arbitrario, modificabile dal miner per rispettare nBits \\ \hline
 \end{tabular}}
 \end{table}
 
@@ -104,10 +105,24 @@ La blockchain è una lista concatenata che contiene dati e un hash pointer che p
 
 In questa tabella [fonte: bitcoin.org documentazione ufficiale] possiamo osservare la struttura degli 80 Bytes dell’header di ciascun blocco. Tenendo presente quanto affermato in precedenza sulle funzioni di hashing risulta chiara la virtuale impossibilità di riuscire ad effettuare qualsivoglia modifica senza che questa abbia un impatto sull’intera blockchain.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/blockchain-diagram}
+	\caption{}
+	\label{fig:blockchain-diagram}
+\end{figure}
 
 
 È questo a garantire l’inalterabilità del contenuto della blockchain: oltre alla difficoltà data dalla potenza computazionale richiesta per rendere almeno fattibile l’attacco, un brute-force puro, il costo lo rende nella quasi totalità dei casi insostenibile o non profittevole.
-A titolo d’esempio, riporto la stima di quanto costerebbe sferrare un attacco alle principali blockchain allo stato attuale [dati crypto51.app, agosto 2018]
+A titolo d’esempio, riporto la stima di quanto costerebbe sferrare un attacco alle principali blockchain allo stato attuale
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\linewidth]{51cost2therevenge}	
+\caption{crypto51.app, agosto 2018}
+\label{fig:51cost2therevenge}
+\end{figure}
+
 
 
 In breve: la blockchain è un registro pubblico immutabile contenente una serie di blocchi di transazioni validate, ognuna delle quali consiste in un trasferimento di fondi da uno o più input non spesi ad uno o più output, e tutto ciò avviene in modo decentralizzato ed è reso sicuro tramite le curve ellittiche e funzioni di hashing che garantiscono che solo i legittimi proprietari possano usufruire dei fondi.
@@ -127,6 +142,15 @@ Un hard fork piuttosto noto di Bitcoin è Bitcoin Cash: differisce dal protocoll
 Infine ci sono le cosiddette altcoins: forks del codice sorgente di Bitcoin, blockchain totalmente separata, differenze di protocollo scarsamente compatibili. Litecoin è definibile a tutti gli effetti una altcoin.
 
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/altcoinsoftforksetc}
+	\caption{}
+	\label{fig:altcoinsoftforksetc}
+\end{figure}
+
+
+
 
 
 \subsection{Litecoin}
@@ -143,9 +167,18 @@ Questa scelta è stata fatta per evitare l’aumento esponenziale della difficol
 
 I meccanismi di regolazione della difficoltà e di halving sono analoghi a Bitcoin ma i numeri cambiano: la difficoltà viene ricalcolata ogni 3.5 giorni -4 volte più velocemente- e l’halving è fissato ogni 840.000 blocchi -il quadruplo- in linea con la velocità e il numero di unità monetarie di Litecoin.
 
-\subparagraph{Qualche dato su Litecoin} (?)
+\subsubsection{Qualche dato su Litecoin}
 Ad agosto 2018 risultano già minati e circolanti 57.000.000 Litecoin su un totale di 84.000.000 e il valore di un LTC fluttua intorno ai 60 euro.
 
-Questo grafico [fonte] illustra l’andamento sul mercato di Litecoin ed evidenzia come questo segua tendenzialmente l’andamento di Bitcoin.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/LitecoinCoinMarketCap}
+	\caption{dati CoinMarketCap}
+	\label{fig:litecoincoinmarketcap}
+\end{figure}
+
+
+Questo grafico illustra l’andamento sul mercato di Litecoin ed evidenzia come questo segua tendenzialmente l’andamento di Bitcoin.
 Correntemente la ricompensa per un nuovo blocco ammonta a 25 LTC e il dimezzamento è previsto per il 6 agosto 2019.
 La blockchain Litecoin contiene attualmente \~{}1.470.000 blocchi.
+

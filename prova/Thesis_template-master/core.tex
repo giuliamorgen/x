@@ -192,7 +192,15 @@ Nel 2018, 62046 blocchi su un totale di 63434 il cui pool è noto e/o rilevabile
 \end{tabular}
 
 
-Per ogni singolo anno (i dati prima del 2014 non sono significativi) si possono vedere affiancati in proporzione i blocchi frutto di merged mining (grigio) e non (arancione).
+La figura \ref{fig:nomerged-vs-merged} mostra per ogni anno a partire dal 2014 (poiché i dati precedenti non sono significativi) la proporzione tra i blocchi frutto di merged mining e non.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/nomerged-vs-merged}
+	\caption{Proporzione tra blocchi minati con e senza merged mining. Dati ottenuti tramite BlockAPI.}
+	\label{fig:nomerged-vs-merged}
+\end{figure}
+
 
 \section{Empty blocks}
 \subsection{Contesto}
@@ -245,11 +253,25 @@ ORDER BY Ratio desc;
 Infine, questa query ci fornisce una vista ordinata in modo decrescente per ratio empty/total delineando meglio il quadro generale.				
 \subsection{Risultati}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/percentuale-blocchi-vuoti-per-miner}
+	\caption{\% di blocchi vuoti per i principali miners. Dati ottenuti tramite BlockAPI}
+	\label{fig:percentuale-blocchi-vuoti-per-miner}
+\end{figure}
 
-Questo grafico indica, per ogni miner, qual è la percentuale di blocchi vuoti rispetto ai blocchi totali
 
-Nonostante il bug citato nel cap 4.1 relativo ai mining pools che impedisce la corretta attribuzione di alcuni blocchi ai rispettivi miners, la percentuale di blocchi vuoti minati da AntPool, BW.COM e F2Pool tra quelli rilevati è visibilmente degna di nota. L’osservazione tramite un explorer esterno (nella fattispecie litecoinpool.org in collaborazione con chain.so) ha permesso di riscontrare che AntPool tende a minare anche svariati blocchi vuoti consecutivi, dimostrandosi sotto questo punto di vista uno tra i pools più negativi.
-In assoluto, la distribuzione dei blocchi vuoti tra i pools è la seguente:
+Il grafico in figura \ref*{fig:percentuale-blocchi-vuoti-per-miner} indica, per ogni miner, qual è la percentuale di blocchi vuoti rispetto ai blocchi totali
+
+Nonostante il bug citato nel cap 3.1 relativo ai mining pools che impedisce la corretta attribuzione di alcuni blocchi ai rispettivi miners, la percentuale di blocchi vuoti minati da AntPool, BW.COM e F2Pool tra quelli rilevati è visibilmente degna di nota. L’osservazione tramite un explorer esterno (nella fattispecie litecoinpool.org che sfrutta l'explorer chain.so) ha permesso di riscontrare che AntPool tende a minare anche svariati blocchi vuoti consecutivi, dimostrandosi sotto questo punto di vista uno tra i pools più negativi.
+La distribuzione tra i mining pools sul totale dei blocchi vuoti riscontrati nella blockchain è riportata nella figura \ref{fig:distribuzione-blocchivuoti-ring}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/distribuzione-blocchivuoti-ring}
+	\caption{Ripartizione dei blocchi vuoti tra i pools. Dati ottenuti tramite BlockAPI}
+	\label{fig:distribuzione-blocchivuoti-ring}
+\end{figure}
 
 
 \section{OP\_RETURN protocols}
@@ -260,11 +282,23 @@ Tramite l’OP\_RETURN è possibile utilizzare servizi aggiuntivi che si appoggi
 OP\_RETURN è supportato su Litecoin a partire dalla versione 0.9: pur non avendo raggiunto una diffusione comparabile a quella conseguita su Bitcoin è stata comunque riscontrata la presenza di metaprotocolli nella blockchain, tra cui alcuni dei più noti che si appoggiano a Bitcoin stesso.
 Recentemente l’OP\_RETURN è stato utilizzato per inserire un header indicativo dell’adesione a Segwit: quest’ultimo è un protocollo che nasce per ovviare ad un problema di scalabilità che riguarda la blockchain.
 
-Courtesy of medium.com
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/before-after-segwit-medium}
+	\caption{Transazioni prima e dopo SegWit (medium.com)}
+	\label{fig:before-after-segwit-medium}
+\end{figure}
+
 
 Il problema si è posto con la crescita dell’interesse verso l’utilizzo delle Blockchain, in quanto ogni blocco di transazioni deve rispettare il limite massimo di 1MB e questo ha cominciato a causare congestione e ritardi sui network. Talvolta i tempi di attesa sono stati nell’ordine delle ore. Inoltre un rischio notevole per la sicurezza era rappresentato dalla malleabilità, ossia la possibilità che il destinatario intercettasse l’ID della transazione del mittente modificandola a suo favore. Queste ragioni hanno portato alla separazione (da qui Segregated) della firma digitale (Witness): i dati della firma digitale, che fino ad ora occupavano fino al 65\% dello spazio della transazione, sono ora separati e la transazione contiene un puntatore ad essi affinché il software possa trattare indipendentemente le due parti.
 
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/segwitvsnonsegwit-medium}
+	\caption{differenza tra blocco SegWit e non SegWit (medium.com)}
+	\label{fig:segwitvsnonsegwit-medium}
+\end{figure}
 
 
 La condizione necessaria affinché il sistema SegWit funzioni è l’adozione da parte di almeno il 95\% del network e la segnalazione dell’adozione del sistema da parte dei miners è fondamentale per ritenere il consenso necessario all’implementazione del soft fork.
@@ -303,6 +337,19 @@ MetadataParser.isSegwit(metadata)
 
 Il Boolean ‘segwit’ restituisce true se l’OP\_RETURN rispetta la seguente struttura dichiarata sul github ufficiale:
 
+\begin{tabular}{c|c}
+	\textbf{Bytes} & \textbf{Funzione} \\ 
+	\hline 
+1 Byte	& OP\_RETURN (0x6A) \\ 
+	\hline 
+1 Byte	& Push dei seguenti 36 Bytes (0x24) \\ 
+	\hline 
+4 Byte	& Header SegWit (0xAA21A9ED) \\ 
+	\hline 
+32 Byte	& SHA256(SHA256(witness root hash|witness root value)) \\ 
+	\hline 
+39° e oltre	&  Dati opzionali non riguardanti il protocollo\\ 
+\end{tabular} 
 
 \begin{lstlisting}
 outputTable.insert(Seq(tx.hash.toString, convertDate(block.date), protocol, metadata, segwit))

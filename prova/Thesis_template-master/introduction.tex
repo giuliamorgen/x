@@ -57,7 +57,7 @@ Per sicurezza e praticità si esegue un doppio hash: per prima cosa si calcola S
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\linewidth]{EcdsaToAddress-bstavroulakis}
-\caption{Img from bstavroulakis.com}
+\caption{Processo di codifica di un indirizzo bitcoin (bstavroulakis.com)}
 \label{fig:ecdsatoaddress-bstavroulakis}
 \end{figure}
 
@@ -139,13 +139,13 @@ L’esistenza stessa di una blockchain dipende dall’aderenza alle regole dell�
 Bitcoin, essendo open source, viene mantenuto e valutato da comunità di sviluppatori che reagiscono ai problemi che emergono nel network tramite dei BIP (Bitcoin Improvement Proposal) che formalmente sono uno standard di proposta di miglioramento. Questi possono riguardare il protocollo o le regole. Una soft fork consiste infatti in un cambiamento di protocollo o di regole in modo retrocompatibile: il software continuerà a riconoscere i blocchi precedenti e i vecchi nodi non aggiornati saranno in grado di validare nuovi blocchi. Detta consensus fork, per la sua attuazione è sufficiente che la maggioranza dei miner sia d’accordo. Talvolta si hanno, tuttavia, notizie di attacchi hacker verso i nodi non aderenti (es: DDoS) per forzarne indirettamente l’adesione. Un esempio di soft fork è l’implementazione di SegWit, oggetto di un’analisi al capitolo 4.
 Qualora non fosse presente il consenso necessario tra i miners e la nuova versione del software non fosse retrocompatibile si verificherebbe un hard fork: quando ciò si verifica la blockchain subisce una separazione definitiva e il possessore di criptovaluta la possiede ora duplicata sulla blockchain forked.
 Un hard fork piuttosto noto di Bitcoin è Bitcoin Cash: differisce dal protocollo originale per la dimensione del blocco, che da 1 passa ad 8 MB. Chi possedeva X bitcoin (BTC) al momento del forking ha potuto ottenere gratuitamente X bitcoincash (BCH).
-Infine ci sono le cosiddette altcoins: forks del codice sorgente di Bitcoin, blockchain totalmente separata, differenze di protocollo scarsamente compatibili. Litecoin è definibile a tutti gli effetti una altcoin.
+Infine ci sono le cosiddette altcoins: forks del codice sorgente di Bitcoin, blockchain totalmente separata, differenze di protocollo scarsamente compatibili. Litecoin è definibile a tutti gli effetti una altcoin ed è stata a sua volta oggetto di codebase forks.
 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/altcoinsoftforksetc}
-	\caption{}
+	\caption{Classificazione delle blockchain derivanti dalla codebase di Bitcoin. (medium.com)}
 	\label{fig:altcoinsoftforksetc}
 \end{figure}
 
@@ -154,7 +154,7 @@ Infine ci sono le cosiddette altcoins: forks del codice sorgente di Bitcoin, blo
 
 
 \subsection{Litecoin}
-Litecoin è una criptovaluta peer to peer che dal punto di vista tecnico condivide gran parte dell’implementazione di Bitcoin. Non è considerabile un fork di Bitcoin in senso stretto poiché non c’è stata la duplicazione della moneta, bensì una source code fork: è stato effettuato un fork del client open source Bitcoin Core e sono state effettuate delle modifiche sostanziali che si sono riflesse nella blockchain e le due valute non hanno uno storico comune. 
+Litecoin è una criptovaluta peer to peer che dal punto di vista tecnico condivide gran parte dell’implementazione di Bitcoin. Non è considerabile una fork di Bitcoin in senso stretto poiché non c’è stata la duplicazione della moneta, bensì una source code fork: è stato effettuato il fork del codice sorgente e del client open source Bitcoin Core e sono state effettuate delle modifiche sostanziali che si sono riflesse nella blockchain e le due valute non hanno uno storico comune. 
 Nasce nel 2011 ad opera dell’ex ingegnere MIT Charlie Lee, con l’intento dichiarato di diventare rispetto a Bitcoin “ciò che l’argento è rispetto all’oro”; già da questa frase si può comprendere come Litecoin sia una valuta che si presta a micropagamenti e operazioni più rapide rispetto a Bitcoin. Lee sostiene di non aver concepito Litecoin come sostituto di Bitcoin, bensì come complemento per risolvere alcune criticità da lui rilevate.
 
 Pur condividendone per la maggior parte struttura e protocollo presenta alcune differenze fondamentali:

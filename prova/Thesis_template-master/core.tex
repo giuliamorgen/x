@@ -88,7 +88,7 @@ Su un totale di 312432 blocchi di cui ci è noto il miner, possiamo fare le segu
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/top5miners}
-	\caption{I 5 pools che hanno minato più blocchi LTC. Dati ottenuti tramite BlockAPI}
+	\caption{I 5 pools che hanno minato più blocchi LTC.}
 	\label{fig:top5miners}
 \end{figure}
 
@@ -99,7 +99,7 @@ F2Pool, noto anche come DiscusFish e attivo dal 2013 su BTC, ETH e altre criptov
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/top5miners2016vs2018}
-	\caption{Distribuzione dei blocchi tra i 5 maggiori mining pools, confronto tra 2016 e 2018. Dati ottenuti tramite BlockAPI}
+	\caption{Distribuzione dei blocchi tra i 5 maggiori mining pools, confronto tra 2016 e 2018.}
 	\label{fig:top5miners2016vs2018}
 \end{figure}
 
@@ -116,7 +116,7 @@ In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concent
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/distribuzionemining}
-	\caption{blocchi per miner 2017, dati ottenuti tramite BlockAPI}
+	\caption{blocchi per miner 2017}
 	\label{fig:distribuzionemining}
 \end{figure}
 
@@ -150,7 +150,7 @@ GROUP BY MM?;
 
 Nel 2018, 62046 blocchi su un totale di 63434 il cui pool è noto e/o rilevabile dal tool sono minati con merged mining. È il 98.37\%, da cui deduciamo che ormai la quasi totalità dei mining pools adotta questo sistema.
 
-
+\begin{table}
 \begin{tabular}{|l|c|}
 	\hline 
 	\textbf{Year} & \textbf{MM\%} \\ 
@@ -166,7 +166,10 @@ Nel 2018, 62046 blocchi su un totale di 63434 il cui pool è noto e/o rilevabile
 	2018 & 97.82 \\ 
 	\hline 
 \end{tabular}
+\caption{Percentuale di blocchi da merged mining anno per anno}
+\end{table}
  
+\begin{table}
 \begin{tabular}{|c|c|}
 	\hline 
 	\textbf{Blocks2018} & \textbf{MM?} \\ 
@@ -176,6 +179,8 @@ Nel 2018, 62046 blocchi su un totale di 63434 il cui pool è noto e/o rilevabile
 	62406 & Yes \\
 	\hline
 \end{tabular}
+\caption{Blocchi da merged mining nel 2018}
+\end{table}
 
 
 La figura \ref{fig:nomerged-vs-merged} mostra per ogni anno a partire dal 2014 (poiché i dati precedenti non sono significativi) la proporzione tra i blocchi frutto di merged mining e non.
@@ -183,7 +188,7 @@ La figura \ref{fig:nomerged-vs-merged} mostra per ogni anno a partire dal 2014 (
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/nomerged-vs-merged}
-	\caption{Proporzione tra blocchi minati con e senza merged mining. Dati ottenuti tramite BlockAPI.}
+	\caption{Proporzione tra blocchi minati con e senza merged mining.}
 	\label{fig:nomerged-vs-merged}
 \end{figure}
 
@@ -242,7 +247,7 @@ Infine, questa query ci fornisce una vista ordinata in modo decrescente per rati
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/percentuale-blocchi-vuoti-per-miner}
-	\caption{\% di blocchi vuoti per i principali miners. Dati ottenuti tramite BlockAPI}
+	\caption{Percentuale di blocchi vuoti per i principali miners.}
 	\label{fig:percentuale-blocchi-vuoti-per-miner}
 \end{figure}
 
@@ -255,7 +260,7 @@ La distribuzione tra i mining pools sul totale dei blocchi vuoti riscontrati nel
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/distribuzione-blocchivuoti-ring}
-	\caption{Ripartizione dei blocchi vuoti tra i pools. Dati ottenuti tramite BlockAPI}
+	\caption{Ripartizione dei blocchi vuoti tra i pools.}
 	\label{fig:distribuzione-blocchivuoti-ring}
 \end{figure}
 
@@ -321,21 +326,8 @@ var segwit: Boolean =
 MetadataParser.isSegwit(metadata)
 \end{lstlisting}
 
-Il Boolean ‘segwit’ restituisce true se l’OP\_RETURN rispetta la seguente struttura dichiarata sul github ufficiale:
+Il Boolean ‘segwit’ restituisce true se l’OP\_RETURN rispetta la struttura dichiarata sul github ufficiale, riportata nella tabella \ref{seg}:
 
-\begin{tabular}{c|c}
-	\textbf{Bytes} & \textbf{Funzione} \\ 
-	\hline 
-1 Byte	& OP\_RETURN (0x6A) \\ 
-	\hline 
-1 Byte	& Push dei seguenti 36 Bytes (0x24) \\ 
-	\hline 
-4 Byte	& Header SegWit (0xAA21A9ED) \\ 
-	\hline 
-32 Byte	& SHA256(SHA256(witness root hash|witness root value)) \\ 
-	\hline 
-39° e oltre	&  Dati opzionali non riguardanti il protocollo\\ 
-\end{tabular} 
 
 \begin{lstlisting}
 outputTable.insert(Seq(tx.hash.toString, convertDate(block.date), protocol, metadata, segwit))
@@ -356,10 +348,32 @@ GROUP by isSegwit;
 \end{lstlisting}
 
 L’header della transazione “aa21a9ed” è un codice non-ascii che segnala l’utilizzo di SegWit nel blocco. Allo stato attuale dello sviluppo delle librerie di terze parti utilizzate per la blockchain Litecoin, non abbiamo a disposizione gli strumenti per effettuare ulteriori analisi sul contenuto dei metadati dell’OP\_RETURN il cui header segnali SegWit.
+
+\begin{table}
+	\begin{tabular}{c|c}
+		\textbf{Bytes} & \textbf{Funzione} \\ 
+		\hline 
+		1 Byte	& OP\_RETURN (0x6A) \\ 
+		\hline 
+		1 Byte	& Push dei seguenti 36 Bytes (0x24) \\ 
+		\hline 
+		4 Byte	& Header SegWit (0xAA21A9ED) \\ 
+		\hline 
+		32 Byte	& SHA256(SHA256(witness root hash|witness root value)) \\ 
+		\hline 
+		39° e oltre	&  Dati opzionali non riguardanti il protocollo\\ 
+		\hline
+	\end{tabular}
+	\label{seg}
+	\caption{Struttura OP\_RETURN SegWit (github ufficiale, BIP141)}
+\end{table} 
+
 \subsection{Risultati}
 
 Un primo conto significativo si può effettuare per dividere gli OP\_RETURN utilizzati allo scopo di segnalare SegWit da quelli utilizzati per qualsiasi altro scopo: come abbiamo detto è possibile utilizzarli per introdurre altri servizi esterni alla blockchain, ma anche per ancorare un messaggio in modo permanente alla blockchain seppur meno diffusamente di quanto accada su Bitcoin, nel quale la funzionalità viene sfruttata da molto più tempo.
 
+\begin{center}
+\begin{table}
 \begin{tabular}{|c|c|}
 	\hline 
 	\textbf{Segwit?} & \textbf{TxCount} \\ 
@@ -369,7 +383,10 @@ Un primo conto significativo si può effettuare per dividere gli OP\_RETURN util
 	Yes & 234476 \\ 
 	\hline 
 \end{tabular} 
+\caption{OP\_RETURN non nulli contenenti l'header SegWit}
+\end{table}
 
+\begin{table}
 \begin{tabular}{|c|c|}
 	\hline 
 	\textbf{protocol}& \textbf{count}  \\ 
@@ -396,15 +413,19 @@ empty	& 1 \\
 	\hline 
 proofofexistence	& 1 \\ 
 	\hline 
-\end{tabular} 
+\end{tabular}
+\label{protocols} 
+\caption{Metaprotocolli utilizzati nelle transazioni OP\_RETURN non SegWit}
+\end{table}
+\end{center}
 
 Esaminiamo ora gli OP\_RETURN utilizzati per uno scopo diverso dalla segnalazione di SegWit: approssimativamente il 50\% non denota l’utilizzo di un metaprotocollo specifico. Questo numero include OP\_RETURNs che contengono messaggi testuali, stringhe la cui decodifica non corrisponde ad alcun ascii, eventualmente codificati in base-64 o in altro modo, e infine protocolli a noi ancora non noti o di cui non è stato possibile trovare un riscontro affidabile sul web.
-La diffusione dei vari protocolli nel restante 50\% è riportata nella tabella.
+La diffusione dei vari protocolli nel restante 50\% è riportata nella tabella \ref{protocols}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/distribuzioneopreturn}
-	\caption{Ripartizione dei metaprotocolli negli op\_return della blockchain Litecoin. Dati ottenuti tramite BlockAPI}
+	\caption{Ripartizione dei metaprotocolli negli op\_return della blockchain Litecoin.}
 	\label{fig:distribuzioneopreturn}
 \end{figure}
 

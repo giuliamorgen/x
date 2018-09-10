@@ -2,7 +2,7 @@
 \chapter{Analisi}
 
 \lstset{frame=tb,
-	language=Scala,
+	language=SQL,
 	aboveskip=3mm,
 	belowskip=3mm,
 	showstringspaces=false,
@@ -119,7 +119,7 @@ In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concent
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/distribuzionemining}
-	\caption{blocchi per miner 2017}
+	\caption{Blocchi per miner, 2017}
 	\label{fig:distribuzionemining}
 \end{figure}
 
@@ -141,12 +141,12 @@ Ho identificato il pattern esadecimale [fabe6d6d] che viene inserito nella coinb
 \subsection{Obiettivo dell’analisi}
 Identificare quanti blocchi vengano ottenuti tramite merged mining e chi li ha minati, la diffusione della pratica nel corso degli anni.
 \subsection{Svolgimento}
-L’esame dell’hex della transazione coinbase questa volta si orienterà sulla ricerca del pattern fabe6d6d. Ho effettuato l’analisi sullo stato dell’intera blockchain Litecoin fino al 02/08/2018.
+L’esame dell’hex della transazione coinbase questa volta si orienterà sulla ricerca del pattern fabe6d6d. I dati analizzati sono relativi all'intera blockchain Litecoin allo stato del 02/08/2018 e ne verranno isolate sezioni temporali per fare dei confronti oltre ad una panoramica generale.
 \subsection{Query}
 
 \begin{lstlisting}
 SELECT COUNT(*) as "Blocks", isMerged as 'MM?' FROM myblockchainlite.ltcpools WHERE timestamp > "2018-01-01" AND pool != "unknown"
-GROUP BY MM?;
+GROUP BY isMerged;
 \end{lstlisting}
 
 \subsection{Risultati}
@@ -245,7 +245,7 @@ GROUP BY miner) as t1)
 ORDER BY Ratio desc;
 \end{lstlisting}		
 
-Infine, questa query ci fornisce una vista ordinata in modo decrescente per ratio empty/total delineando meglio il quadro generale.				
+Infine, questa query ci fornisce una vista globale ordinata in modo decrescente per ratio empty/total.				
 \subsection{Risultati}
 
 \begin{figure}[h!]
@@ -292,7 +292,7 @@ Il problema si è posto con la crescita dell’interesse verso l’utilizzo dell
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/segwitvsnonsegwit-medium}
-	\caption{differenza tra blocco SegWit e non SegWit}
+	\caption{Differenza tra blocco SegWit e non SegWit}
 	\label{fig:segwitvsnonsegwit-medium}
 	\footnote{fonte medium.com}
 \end{figure}
@@ -371,16 +371,15 @@ L’header della transazione “aa21a9ed” è un codice non-ascii che segnala l
 		39° e oltre	&  Dati opzionali non riguardanti il protocollo\\ 
 		\hline
 	\end{tabular}
-	\label{seg}
 	\caption{Struttura OP\_RETURN SegWit (github ufficiale)}
+	\label{seg}
 	\footnote{Fonte: github ufficiale bitcoin, BIP141}
 \end{table} 
 
 \subsection{Risultati}
 
-Un primo conto significativo si può effettuare per dividere gli OP\_RETURN utilizzati allo scopo di segnalare SegWit da quelli utilizzati per qualsiasi altro scopo: come abbiamo detto è possibile utilizzarli per introdurre altri servizi esterni alla blockchain, ma anche per ancorare un messaggio in modo permanente alla blockchain seppur meno diffusamente di quanto accada su Bitcoin, nel quale la funzionalità viene sfruttata da molto più tempo.
+Un primo conto significativo si può effettuare per dividere gli OP\_RETURN utilizzati allo scopo di segnalare SegWit da quelli utilizzati per qualsiasi altro scopo. Come abbiamo detto è possibile utilizzarli per introdurre altri servizi esterni alla blockchain, ma anche per ancorare un messaggio in modo permanente alla blockchain seppur meno diffusamente di quanto accada su Bitcoin, nel quale la funzionalità viene sfruttata da molto più tempo. La tabella \ref{segwityn} ne evidenzia l'utilizzo primario: su un totale di 259035 OP\_RETURNs, il 90.5\% contiene l'header SegWit.
 
-\begin{center}
 \begin{table}
 \begin{tabular}{|c|c|}
 	\hline 
@@ -391,7 +390,8 @@ Un primo conto significativo si può effettuare per dividere gli OP\_RETURN util
 	Yes & 234476 \\ 
 	\hline 
 \end{tabular} 
-\caption{OP\_RETURN non nulli contenenti l'header SegWit}
+\caption{OP\_RETURN contenenti l'header SegWit nell'intera blockchain}
+\label{segwityn}
 \end{table}
 
 \begin{table}
@@ -422,12 +422,11 @@ empty	& 1 \\
 proofofexistence	& 1 \\ 
 	\hline 
 \end{tabular}
-\label{protocols} 
 \caption{Metaprotocolli utilizzati nelle transazioni OP\_RETURN non SegWit}
+\label{protocols}
 \end{table}
-\end{center}
 
-Esaminiamo ora gli OP\_RETURN utilizzati per uno scopo diverso dalla segnalazione di SegWit: approssimativamente il 50\% non denota l’utilizzo di un metaprotocollo specifico. Questo numero include OP\_RETURNs che contengono messaggi testuali, stringhe la cui decodifica non corrisponde ad alcun ascii, eventualmente codificati in base-64 o in altro modo, e infine protocolli a noi ancora non noti o di cui non è stato possibile trovare un riscontro affidabile sul web.
+Esaminiamo ora nel dettaglio gli OP\_RETURNs con una funzione diversa dalla segnalazione di SegWit: approssimativamente il 50\% di essi non denota l’utilizzo di un metaprotocollo specifico. Questo numero include OP\_RETURNs che contengono messaggi testuali, stringhe la cui decodifica non corrisponde ad alcun ascii, eventualmente codificati in base-64 o in altro modo, e infine protocolli a noi ancora non noti o di cui non è stato possibile trovare un riscontro affidabile sul web.
 La diffusione dei vari protocolli nel restante 50\% è riportata nella tabella \ref{protocols}.
 
 \begin{figure}

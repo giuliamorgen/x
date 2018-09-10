@@ -29,16 +29,15 @@ L’hashing power complessivo al momento dell’analisi corrente è circa 275 Te
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{provahashratelog}
-	\caption{Litecoin Hashrate 2014-2018(Fonte:\url{bitinfocharts.com}).}
+	\caption{Litecoin Hashrate 2014-2018 (Fonte:\url{bitinfocharts.com}).}
 	\label{fig:provahashratelog}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{LitecoinHashRateLIN}
-	\caption{Litecoin Hashrate 2018(Fonte:\url{bitinfocharts.com}).} 
+	\caption{Litecoin Hashrate 2018 (Fonte:\url{bitinfocharts.com}).} 
 	\label{fig:litecoinhashratelin}
-	\footnote{bitinfocharts.com}
 \end{figure}
 
 
@@ -48,7 +47,7 @@ La suddivisione riportata in figura \ref{fig:hashingpower020818} è datata 02/08
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/HashingPower020818}
-	\caption{Stima della distribuzione istantanea dell'hash rate, dati del 02/08/2018(Fonte:\url{litecoinpool.org}).}
+	\caption{Stima della distribuzione istantanea dell'hash rate, dati del 02/08/2018 (Fonte:\url{litecoinpool.org}).}
 	\label{fig:hashingpower020818}
 \end{figure}
 
@@ -131,7 +130,7 @@ Ho identificato il pattern esadecimale [fabe6d6d] che viene inserito nella coinb
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/mergedminingdiagramsemanticscholar}
-	\caption{Schema di funzionamento del merged mining(Fonte:\url{coincentral.com}).}
+	\caption{Schema di funzionamento del merged mining (Fonte:\url{coincentral.com}).}
 	\label{fig:mergedminingdiagramsemanticscholar}
 \end{figure}
 
@@ -152,35 +151,39 @@ GROUP BY isMerged;
 Nel 2018, 62046 blocchi su un totale di 63434 il cui pool è noto e/o rilevabile dal tool sono minati con merged mining. È il 98.37\%, da cui deduciamo che ormai la quasi totalità dei mining pools adotta questo sistema.
 
 \begin{table}
-\begin{tabular}{|l|c|}
-	\hline 
-	\textbf{Year} & \textbf{MM\%} \\ 
-	\hline 
-	2014 & 31.29 \\ 
-	\hline 
-	2015 & 87.61 \\ 
-	\hline 
-	2016 & 98.27 \\ 
-	\hline 
-	2017 & 97.96 \\ 
-	\hline 
-	2018 & 97.82 \\ 
-	\hline 
-\end{tabular}
-\caption{Percentuale di blocchi da merged mining anno per anno}
+	\begin{center}
+		\begin{tabular}{|l|c|}
+			\hline 
+			\textbf{Year} & \textbf{MM\%} \\ 
+			\hline 
+			2014 & 31.29 \\ 
+			\hline 
+			2015 & 87.61 \\ 
+			\hline 
+			2016 & 98.27 \\ 
+			\hline 
+			2017 & 97.96 \\ 
+			\hline 
+			2018 & 97.82 \\ 
+			\hline 
+		\end{tabular}
+		\caption{Percentuale di blocchi da merged mining anno per anno}
+	\end{center}
 \end{table}
  
 \begin{table}
-\begin{tabular}{|c|c|}
-	\hline 
-	\textbf{Blocks2018} & \textbf{MM?} \\ 
-	\hline 
-	1388 & No \\ 
-	\hline
-	62406 & Yes \\
-	\hline
-\end{tabular}
-\caption{Blocchi da merged mining nel 2018}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline 
+			\textbf{Blocks2018} & \textbf{MM?} \\ 
+			\hline 
+			1388 & No \\ 
+			\hline
+			62406 & Yes \\
+			\hline
+		\end{tabular}
+		\caption{Blocchi da merged mining nel 2018}
+	\end{center}
 \end{table}
 
 
@@ -277,7 +280,7 @@ Recentemente l’OP\_RETURN è stato utilizzato per inserire un header indicativ
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/before-after-segwit-medium}
-	\caption{Transazioni prima e dopo SegWit(Fonte:\url{medium.com}).}
+	\caption{Transazioni prima e dopo SegWit (Fonte:\url{medium.com}).}
 	\label{fig:before-after-segwit-medium}
 \end{figure}
 
@@ -288,7 +291,7 @@ Il problema si è posto con la crescita dell’interesse verso l’utilizzo dell
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/segwitvsnonsegwit-medium}
-	\caption{Differenza tra blocco SegWit e non SegWit(Fonte:\url{medium.com}).}
+	\caption{Differenza tra blocco SegWit e non SegWit (Fonte:\url{medium.com}).}
 	\label{fig:segwitvsnonsegwit-medium}
 \end{figure}
 
@@ -302,10 +305,11 @@ Identificare tramite pattern noti i metaprotocolli utilizzati e l’header di ad
 Si identificano le transazioni OP\_RETURN della blockchain. BlockAPI contiene una lista di pattern conosciuti utilizzati anche su Bitcoin ai quali ho aggiunto alcuni pattern scoperti tramite ricerca e consultazione dei siti ufficiali dei fornitori dei servizi.
 
 \begin{figure}[h]
-	\centering
-	\includegraphics[width=1.0\linewidth]{images/ol-omnilayer-medium}
-	\caption{Struttura di un OP\_RETURN di Omni Layer(Fonte:\url{medium.com}).}
-	\label{fig:ol-omnilayer-medium}
+	\begin{center}
+		\includegraphics[width=1.0\linewidth]{images/ol-omnilayer-medium}
+		\caption{Struttura di un OP\_RETURN di Omni Layer (Fonte:\url{medium.com}).}
+		\label{fig:ol-omnilayer-medium}
+	\end{center}
 \end{figure}
 
 Su ciascuna di esse, in modo analogo a quanto fatto sulle coinbase per l’analisi dei mining pools, si effettua un parsing dell’output tramite il seguente script:
@@ -351,22 +355,25 @@ GROUP by isSegwit;
 L’header della transazione “aa21a9ed” è un codice non-ascii che segnala l’utilizzo di SegWit nel blocco. Allo stato attuale dello sviluppo delle librerie di terze parti utilizzate per la blockchain Litecoin, non abbiamo a disposizione gli strumenti per effettuare ulteriori analisi sul contenuto dei metadati dell’OP\_RETURN il cui header segnali SegWit.
 
 \begin{table}
-	\begin{tabular}{c|c}
-		\textbf{Bytes} & \textbf{Funzione} \\ 
-		\hline 
-		1 Byte	& OP\_RETURN (0x6A) \\ 
-		\hline 
-		1 Byte	& Push dei seguenti 36 Bytes (0x24) \\ 
-		\hline 
-		4 Byte	& Header SegWit (0xAA21A9ED) \\ 
-		\hline 
-		32 Byte	& SHA256(SHA256(witness root hash|witness root value)) \\ 
-		\hline 
-		39° e oltre	&  Dati opzionali non riguardanti il protocollo\\ 
-		\hline
-	\end{tabular}
-	\caption{Struttura OP\_RETURN SegWit (Fonte: github Bitcoin \cite{bip141}).}
-	\label{seg}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Bytes} & \textbf{Funzione} \\ 
+			\hline 
+			1 Byte	& OP\_RETURN (0x6A) \\ 
+			\hline 
+			1 Byte	& Push dei seguenti 36 Bytes (0x24) \\ 
+			\hline 
+			4 Byte	& Header SegWit (0xAA21A9ED) \\ 
+			\hline 
+			32 Byte	& SHA256(SHA256(witness root hash|witness root value)) \\ 
+			\hline 
+			39° e oltre	&  Dati opzionali non riguardanti il protocollo\\ 
+			\hline
+		\end{tabular}
+		\caption{Struttura OP\_RETURN SegWit (Fonte: github Bitcoin \cite{bip141}).}
+		\label{seg}
+	\end{center}
 \end{table} 
 
 \subsection{Risultati}
@@ -374,49 +381,53 @@ L’header della transazione “aa21a9ed” è un codice non-ascii che segnala l
 Un primo conto significativo si può effettuare per dividere gli OP\_RETURN utilizzati allo scopo di segnalare SegWit da quelli utilizzati per qualsiasi altro scopo. Come abbiamo detto è possibile utilizzarli per introdurre altri servizi esterni alla blockchain, ma anche per ancorare un messaggio in modo permanente alla blockchain seppur meno diffusamente di quanto accada su Bitcoin, nel quale la funzionalità viene sfruttata da molto più tempo. La tabella \ref{segwityn} ne evidenzia l'utilizzo primario: su un totale di 259035 OP\_RETURNs, il 90.5\% contiene l'header SegWit.
 
 \begin{table}
-\begin{tabular}{|c|c|}
-	\hline 
-	\textbf{Segwit?} & \textbf{TxCount} \\ 
-	\hline 
-	No & 24559 \\ 
-	\hline 
-	Yes & 234476 \\ 
-	\hline 
-\end{tabular} 
-\caption{OP\_RETURN contenenti l'header SegWit nell'intera blockchain}
-\label{segwityn}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline 
+			\textbf{Segwit} & \textbf{TxCount} \\ 
+			\hline 
+			No & 24559 \\ 
+			\hline 
+			Yes & 234476 \\ 
+			\hline 
+		\end{tabular} 
+		\caption{OP\_RETURN contenenti l'header SegWit nell'intera blockchain}
+		\label{segwityn}
+	\end{center}
 \end{table}
 
 \begin{table}
-\begin{tabular}{|c|c|}
-	\hline 
-	\textbf{protocol}& \textbf{count}  \\ 
-	\hline 
-unknown	&  12381\\ 
-	\hline 
-copyrobo	&  7433\\ 
-	\hline 
-stampery	& 3577 \\ 
-	\hline 
-proofstack	& 967 \\ 
-	\hline 
-colu	& 69 \\ 
-	\hline 
-omni	& 67 \\ 
-	\hline 
-counterparty	& 35 \\ 
-	\hline 
-openassets	& 26 \\ 
-	\hline 
-blockstore	& 2 \\ 
-	\hline 
-empty	& 1 \\ 
-	\hline 
-proofofexistence	& 1 \\ 
-	\hline 
-\end{tabular}
-\caption{Metaprotocolli utilizzati nelle transazioni OP\_RETURN non SegWit}
-\label{protocols}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline 
+			\textbf{protocol}& \textbf{count}  \\ 
+			\hline 
+		unknown	&  12381\\ 
+			\hline 
+		copyrobo	&  7433\\ 
+			\hline 
+		stampery	& 3577 \\ 
+			\hline 
+		proofstack	& 967 \\ 
+			\hline 
+		colu	& 69 \\ 
+			\hline 
+		omni	& 67 \\ 
+			\hline 
+		counterparty	& 35 \\ 
+			\hline 
+		openassets	& 26 \\ 
+			\hline 
+		blockstore	& 2 \\ 
+			\hline 
+		empty	& 1 \\ 
+			\hline 
+		proofofexistence	& 1 \\ 
+			\hline 
+		\end{tabular}
+		\caption{Metaprotocolli utilizzati nelle transazioni OP\_RETURN non SegWit}
+		\label{protocols}
+	\end{center}
 \end{table}
 
 Esaminiamo ora nel dettaglio gli OP\_RETURNs con una funzione diversa dalla segnalazione di SegWit: approssimativamente il 50\% di essi non denota l’utilizzo di un metaprotocollo specifico. Questo numero include OP\_RETURNs che contengono messaggi testuali, stringhe la cui decodifica non corrisponde ad alcun ascii, eventualmente codificati in base-64 o in altro modo, e infine protocolli a noi ancora non noti o di cui non è stato possibile trovare un riscontro affidabile sul web.

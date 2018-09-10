@@ -11,7 +11,7 @@ La tesi presenta un background tecnico iniziale necessario a capire Bitcoin e va
 \subsection{Bitcoin}
 Bitcoin è una criptovaluta nata nel 2009 ad opera di Satoshi Nakamoto, la cui vera identità è ancora ignota. Open source, orientata all’anonimato, decentralizzata e peer to peer, non possiede alcun server “centrale” o organismo di controllo. È una risorsa totalmente virtuale che non prevede un’unità fisica associata: i Bitcoin sono “coniati” tramite un processo, il cosiddetto mining, che comporta una competizione nel cercare le soluzioni di un problema computazionale estremamente oneroso da risolvere ma la cui soluzione sia semplicissima da verificare, detto Proof of Work.
 Chiunque può minare tramite la potenza di calcolo di cui dispone, ma la difficoltà del puzzle crittografico viene ricalcolata ogni 2016 blocchi -approssimativamente 2 settimane- in base alla potenza di calcolo del network affinché in media un blocco di transazioni sul network venga generato e validato ogni 10 minuti. Dunque ogni 10 minuti circa un nuovo blocco viene confermato e aggiunto alla blockchain e questo lavoro viene ricompensato con una quantità prestabilita di Bitcoin nuovi di zecca. 
-La ricompensa per il miner si dimezza circa ogni 4 anni perché, dal momento che il protocollo Bitcoin permette l’esistenza di massimo 21 milioni di unità monetarie, la ricompensa deve essere sufficientemente elevata da incentivare il lavoro del miner ma non così tanto da deprezzare la valuta mettendo in circolazione prematuramente un numero eccessivo di Bitcoin. Attualmente la ricompensa ammonta a 12.5 BTC e nel 2020 subirà un nuovo dimezzamento.
+La ricompensa per il miner si dimezza circa ogni 4 anni perché, dal momento che il protocollo Bitcoin permette l’esistenza di massimo 21 milioni di unità monetarie, la ricompensa deve essere sufficientemente elevata da incentivare il lavoro del miner ma non così tanto da deprezzare la valuta mettendo in circolazione prematuramente un numero eccessivo di Bitcoin. Attualmente la ricompensa ammonta a 12.5 BTC e nel 2020 subirà un nuovo dimezzamento.\cite{blockonomi}
 Le informazioni e lo storico di tutte le transazioni sulla rete sono immutabili e distribuiti sui nodi che la costituiscono. La struttura dati atta a garantire ciò è la Blockchain e tramite essa Bitcoin decentralizza e distribuisce sulla rete le funzioni di emissione di valuta (mining) e di compensazione (halving) eliminando la necessità di una banca centrale.
 
 
@@ -41,7 +41,7 @@ Variable	& Outputs &  Uno o più input di transazione\\ \hline
  	 
 4 Bytes	& Locktime & Un Unix timestamp o numero del blocco \\ \hline
 \end{tabular}}
-\caption{Struttura dell'header di una transazione Bitcoin (Mastering Bitcoin)}
+\caption{Struttura dell'header di una transazione Bitcoin \cite{masteringbitcoin}}
 \end{table}
 
 
@@ -67,8 +67,9 @@ La blockchain è un registro pubblico e distribuito che tiene traccia di tutte l
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1.0\linewidth]{SimplifiedBlockchainBlockGeeks}
-\caption{Struttura semplificata di una blockchain (blockgeeks.com)}
+\caption{Struttura semplificata di una blockchain}
 \label{fig:simplifiedblockchainblockgeeks}
+\footnote{Fonte blockgeeks.com}
 \end{figure}
 
 
@@ -132,8 +133,9 @@ Infine ci sono le cosiddette altcoins: forks del codice sorgente di Bitcoin, blo
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/altcoinsoftforksetc}
-	\caption{Classificazione delle blockchain derivanti dalla codebase di Bitcoin. (medium.com)}
+	\caption{Classificazione delle blockchain derivanti dalla codebase di Bitcoin.}
 	\label{fig:altcoinsoftforksetc}
+	\footnote{Fonte medium.com}
 \end{figure}
 
 
@@ -160,12 +162,13 @@ Ad agosto 2018 risultano già minati e circolanti 57.000.000 Litecoin su un tota
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/LitecoinCoinMarketCap}
-	\caption{Confronto tra gli andamenti di mercato di Bitcoin e Litecoin (CoinMarketCap)}
+	\caption{Confronto tra gli andamenti di mercato di Bitcoin e Litecoin}
 	\label{fig:litecoincoinmarketcap}
+	\footnote{Fonte Coinmarketcap.com}
 \end{figure}
 
 
 Questo grafico illustra l’andamento sul mercato di Litecoin ed evidenzia come questo segua tendenzialmente l’andamento di Bitcoin.
-Correntemente la ricompensa per un nuovo blocco ammonta a 25 LTC e il dimezzamento è previsto per il 6 agosto 2019.
-La blockchain Litecoin contiene attualmente \~{}1.470.000 blocchi.
+Correntemente la difficoltà è prossima al $10^{7}$   \cite{bitcoinwisdom}, la ricompensa per un nuovo blocco ammonta a 25 LTC e il dimezzamento è previsto per il 6 agosto 2019.
+La blockchain Litecoin contiene attualmente \~{}1.480.000 blocchi.
 

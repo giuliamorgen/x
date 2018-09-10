@@ -49,8 +49,9 @@ La suddivisione riportata in seguito è datata 02/08/2018, è limitatamente indi
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/HashingPower020818}
-	\caption{dati 02/08/2018 litecoinpool.org}
+	\caption{Stima della distribuzione istantanea dell'hash rate, dati del 02/08/2018}
 	\label{fig:hashingpower020818}
+	\footnote{fonte: litecoinpool.org}
 \end{figure}
 
 
@@ -90,7 +91,7 @@ Su un totale di 312432 blocchi di cui ci è noto il miner, possiamo fare le segu
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/top5miners}
-	\caption{I 5 pools che hanno minato più blocchi LTC.}
+	\caption{I 5 pools che hanno minato più blocchi LTC nell'intera blockchain.}
 	\label{fig:top5miners}
 \end{figure}
 
@@ -132,8 +133,9 @@ Ho identificato il pattern esadecimale [fabe6d6d] che viene inserito nella coinb
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/mergedminingdiagramsemanticscholar}
-	\caption{Funzionamento del merged mining, fonte Semantic Scholar}
+	\caption{Schema di funzionamento del merged mining}
 	\label{fig:mergedminingdiagramsemanticscholar}
+	\footnote{fonte: Semantic Scholar}
 \end{figure}
 
 \subsection{Obiettivo dell’analisi}
@@ -278,8 +280,9 @@ Recentemente l’OP\_RETURN è stato utilizzato per inserire un header indicativ
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/before-after-segwit-medium}
-	\caption{Transazioni prima e dopo SegWit (medium.com)}
+	\caption{Transazioni prima e dopo SegWit}
 	\label{fig:before-after-segwit-medium}
+	\footnote{Fonte: medium.com}
 \end{figure}
 
 
@@ -289,8 +292,9 @@ Il problema si è posto con la crescita dell’interesse verso l’utilizzo dell
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/segwitvsnonsegwit-medium}
-	\caption{differenza tra blocco SegWit e non SegWit (medium.com)}
+	\caption{differenza tra blocco SegWit e non SegWit}
 	\label{fig:segwitvsnonsegwit-medium}
+	\footnote{fonte medium.com}
 \end{figure}
 
 
@@ -305,8 +309,9 @@ Si identificano le transazioni OP\_RETURN della blockchain. BlockAPI contiene un
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/ol-omnilayer-medium}
-	\caption{Struttura di un OP\_RETURN di Omni Layer (medium.com)}
+	\caption{Struttura di un OP\_RETURN di Omni Layer}
 	\label{fig:ol-omnilayer-medium}
+	\footnote{medium.com}
 \end{figure}
 
 Su ciascuna di esse, in modo analogo a quanto fatto sulle coinbase per l’analisi dei mining pools, si effettua un parsing dell’output tramite il seguente script:
@@ -367,7 +372,8 @@ L’header della transazione “aa21a9ed” è un codice non-ascii che segnala l
 		\hline
 	\end{tabular}
 	\label{seg}
-	\caption{Struttura OP\_RETURN SegWit (github ufficiale, BIP141)}
+	\caption{Struttura OP\_RETURN SegWit (github ufficiale)}
+	\footnote{Fonte: github ufficiale bitcoin, BIP141}
 \end{table} 
 
 \subsection{Risultati}

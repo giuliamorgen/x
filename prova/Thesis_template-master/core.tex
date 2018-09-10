@@ -29,15 +29,17 @@ L’hashing power complessivo al momento dell’analisi corrente è circa 275 Te
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{provahashratelog}
-	\caption{Litecoin Hashrate 2014-2018, da bitinfocharts.com}
+	\caption{Litecoin Hashrate 2014-2018}
 	\label{fig:provahashratelog}
+	\footnote{bitinfocharts.com}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{LitecoinHashRateLIN}
-	\caption{Litecoin Hashrate 2018 da bitinfocharts.com}
+	\caption{Litecoin Hashrate 2018} 
 	\label{fig:litecoinhashratelin}
+	\footnote{bitinfocharts.com}
 \end{figure}
 
 
@@ -105,13 +107,13 @@ F2Pool, noto anche come DiscusFish e attivo dal 2013 su BTC, ETH e altre criptov
 
 
 
-Il confronto tra i dati del 2016 e i dati (ovviamente parziali) del 2018 evidenziano il cambio di distribuzione del mining di Litecoin: se da un lato la maggior distribuzione dei blocchi minati tra i mining pools indica una migliore decentralizzazione, dall’altro evidenzia che i miners indipendenti o i piccoli pools sono praticamente scomparsi a causa dell’aumento della difficoltà, correntemente > 10.000.000.
+Il confronto tra i dati del 2016 e i dati (ovviamente parziali) del 2018 evidenzia il cambio di distribuzione del mining di Litecoin: se da un lato la maggior distribuzione dei blocchi minati tra i mining pools indica una migliore decentralizzazione, dall’altro evidenzia che i miners indipendenti o i piccoli pools sono praticamente scomparsi a causa dell’aumento della difficoltà, correntemente > 10.000.000.
 
-Infatti se nel 2014 201587 blocchi risultano minati da ignoti su un totale di 215094 (93.7\%) denotando un interesse molto marginale da parte dei mining pools, perlopiù pools già operativi su Bitcoin, e molto maggiore da parte di miners privati, nel 2017 la percentuale scende al 42\% in cui va tenuto conto di margine d’errore dovuto a due cause: la prima, logica, è che potrebbero esserci dei mining pools di cui non si conoscono gli identificatori o non ne usano oppure potremmo non conoscere tutti gli identificatori di ogni mining pool tra quelli già noti, la seconda è che un bug di LitecoinJ nonché della precedente versione di BitcoinJ, sul quale al momento non è possibile intervenire, impedisce il parsing corretto dello script facendolo erroneamente risultare nullo.
+Infatti se nel 2014 201587 blocchi risultano minati da ignoti su un totale di 215094 (93.7\%) denotando un interesse molto marginale da parte dei mining pools -perlopiù pools già operativi su Bitcoin- e molto maggiore da parte di miners privati, nel 2017 la percentuale scende al 42\% in cui va tenuto conto di un margine d’errore dovuto a due cause: la prima, logica, è che potrebbero esserci dei mining pools di cui non si conoscono gli identificatori o non ne usano oppure potremmo non conoscere tutti gli identificatori di ogni mining pool tra quelli già noti, la seconda è che un bug di LitecoinJ nonché della precedente versione di BitcoinJ, sul quale al momento non è possibile intervenire, impedisce il parsing corretto dello script facendolo erroneamente risultare nullo.
 
-A tal proposito va detto che a causa della variabilità degli identificatori utilizzati nonché del suddetto bug di LitecoinJ risulta difficile l’identificazione di alcuni blocchi, soprattutto da parte di AntPool e occasionalmente BW.COM, più di rado F2Pool, che appaiono sottodimensionati nei risultati delle mie analisi. È stato possibile effettuare delle analisi manuali sulle transazioni deserializzate per intervalli molto limitati della blockchain che confermano un’ampia presenza dei suddetti pools.
+A tal proposito va detto che a causa della variabilità degli identificatori utilizzati dai pools nonché del suddetto bug di LitecoinJ risulta difficile l’identificazione di alcuni blocchi, soprattutto da parte di AntPool e occasionalmente BW.COM, più di rado F2Pool, che appaiono sottodimensionati nei risultati delle mie analisi. È stato possibile effettuare delle analisi manuali sulle transazioni deserializzate per intervalli molto limitati della blockchain che confermano un’ampia presenza dei suddetti pools.
 
-In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concentrato nelle mani dei pools noti con la suddivisione in figura 3.6.
+In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concentrato nelle mani dei pools noti con la suddivisione in figura \ref{fig:distribuzionemining}.
 
 \begin{figure}[h!]
 	\centering
@@ -196,7 +198,7 @@ La figura \ref{fig:nomerged-vs-merged} mostra per ogni anno a partire dal 2014 (
 \section{Empty blocks}
 \subsection{Contesto}
 La generazione di un nuovo blocco comporta l’attribuzione della ricompensa al miner che trova la soluzione del cryptopuzzle in aggiunta alle fees, ovvero l’incentivo che l’autore di ogni transazione fornisce al miner per dare priorità all’inserimento di essa nel blocco.
-Quando le fees sono trascurabili rispetto al guadagno immediato della reward, un miner (o mining pool) poco onesto può decidere di puntare unicamente alla soluzione del puzzle senza alcun impegno alla validazione delle transazioni, guadagnando così la ricompensa senza apportare nulla di utile alla blockchain. Ciò ha anche l’effetto collaterale di costringere indirettamente gli utilizzatori a ricorrere a fees più alte per fornire un incentivo ai miners per interessarsi alla transazione.
+Quando le fees sono trascurabili rispetto al guadagno immediato della reward, un miner (o mining pool) poco onesto può decidere di puntare unicamente alla soluzione del puzzle senza alcun impegno alla validazione delle transazioni, guadagnando così la ricompensa senza apportare nulla di utile alla blockchain e ottenendo un vantaggio in termini di tempo e hashing power per la soluzione del blocco successivo \cite{empty}. Ciò ha anche l’effetto collaterale di costringere indirettamente gli utilizzatori a ricorrere a fees più alte per fornire un incentivo ai miners per interessarsi alla transazione.
 Il problema è più accentuato per le criptovalute la cui blockchain prevede una rapida generazione dei blocchi e fees mediamente basse come Litecoin.
 
 \subsection{Obiettivo dell’analisi}
@@ -254,7 +256,7 @@ Infine, questa query ci fornisce una vista ordinata in modo decrescente per rati
 
 Il grafico in figura \ref*{fig:percentuale-blocchi-vuoti-per-miner} indica, per ogni miner, qual è la percentuale di blocchi vuoti rispetto ai blocchi totali
 
-Nonostante il bug citato nel cap 3.1 relativo ai mining pools che impedisce la corretta attribuzione di alcuni blocchi ai rispettivi miners, la percentuale di blocchi vuoti minati da AntPool, BW.COM e F2Pool tra quelli rilevati è visibilmente degna di nota. L’osservazione tramite un explorer esterno (nella fattispecie litecoinpool.org che sfrutta l'explorer chain.so) ha permesso di riscontrare che AntPool tende a minare anche svariati blocchi vuoti consecutivi, dimostrandosi sotto questo punto di vista uno tra i pools più negativi.
+Nonostante il bug citato nel cap 3.1 relativo ai mining pools che impedisce la corretta attribuzione di alcuni blocchi ai rispettivi miners, la percentuale di blocchi vuoti minati da AntPool, BW.COM e F2Pool tra quelli rilevati è visibilmente degna di nota. L’osservazione tramite explorer esterni \cite{chainso,litecoinpool} ha permesso di riscontrare che AntPool tende a minare anche svariati blocchi vuoti consecutivi, dimostrandosi sotto questo punto di vista uno tra i pools più negativi.
 La distribuzione tra i mining pools sul totale dei blocchi vuoti riscontrati nella blockchain è riportata nella figura \ref{fig:distribuzione-blocchivuoti-ring}.
 
 \begin{figure}[h!]

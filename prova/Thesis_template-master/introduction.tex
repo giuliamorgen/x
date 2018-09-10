@@ -9,7 +9,7 @@ La tesi presenta un background tecnico iniziale necessario a capire Bitcoin e va
 
 \section{Background}
 \subsection{Bitcoin}
-Bitcoin è una criptovaluta nata nel 2009 ad opera di Satoshi Nakamoto, la cui vera identità è ancora ignota. Open source, orientata all’anonimato, decentralizzata e peer to peer, non possiede alcun server “centrale” o organismo di controllo. È una risorsa totalmente virtuale che non prevede un’unità fisica associata: i Bitcoin sono “coniati” tramite un processo, il cosiddetto mining, che comporta una competizione nel cercare le soluzioni di un problema computazionale estremamente oneroso da risolvere ma la cui soluzione sia semplicissima da verificare, detto Proof of Work.
+Bitcoin è una criptovaluta nata nel 2009 ad opera di Satoshi Nakamoto \cite{bitcoinpaper}, la cui vera identità è ancora ignota. Open source, orientata all’anonimato, decentralizzata e peer to peer, non possiede alcun server “centrale” o organismo di controllo. È una risorsa totalmente virtuale che non prevede un’unità fisica associata: i Bitcoin sono “coniati” tramite un processo, il cosiddetto mining, che comporta una competizione nel cercare le soluzioni di un problema computazionale estremamente oneroso da risolvere ma la cui soluzione sia semplicissima da verificare, detto Proof of Work.
 Chiunque può minare tramite la potenza di calcolo di cui dispone, ma la difficoltà del puzzle crittografico viene ricalcolata ogni 2016 blocchi -approssimativamente 2 settimane- in base alla potenza di calcolo del network affinché in media un blocco di transazioni sul network venga generato e validato ogni 10 minuti. Dunque ogni 10 minuti circa un nuovo blocco viene confermato e aggiunto alla blockchain e questo lavoro viene ricompensato con una quantità prestabilita di Bitcoin nuovi di zecca. 
 La ricompensa per il miner si dimezza circa ogni 4 anni perché, dal momento che il protocollo Bitcoin permette l’esistenza di massimo 21 milioni di unità monetarie, la ricompensa deve essere sufficientemente elevata da incentivare il lavoro del miner ma non così tanto da deprezzare la valuta mettendo in circolazione prematuramente un numero eccessivo di Bitcoin. Attualmente la ricompensa ammonta a 12.5 BTC e nel 2020 subirà un nuovo dimezzamento.\cite{blockonomi}
 Le informazioni e lo storico di tutte le transazioni sulla rete sono immutabili e distribuiti sui nodi che la costituiscono. La struttura dati atta a garantire ciò è la Blockchain e tramite essa Bitcoin decentralizza e distribuisce sulla rete le funzioni di emissione di valuta (mining) e di compensazione (halving) eliminando la necessità di una banca centrale.
@@ -17,7 +17,7 @@ Le informazioni e lo storico di tutte le transazioni sulla rete sono immutabili 
 
 
 \subsubsection{Background tecnico}
-Per capire Bitcoin è utile chiarire cosa sia effettivamente una transazione in Bitcoin e in cosa differisca da una “ordinaria”, ad esempio con carta di credito. Il concetto di transazione bancaria che conosciamo prevede una privacy ferrea e l’utilizzo della crittografia al fine di non far intercettare dati sensibili ai malintenzionati, mentre in questo caso la transazione è pubblicamente disponibile per intero in un registro pubblico immutabile e non contiene dati personali. Bitcoin ha praticamente trasformato i soldi in una struttura dati e fatto in modo che sia quasi impossibile per chiunque creare una transazione illeggittima, ma che allo stesso tempo sia facilissimo verificarne la validità. Una transazione è infatti una struttura dati che codifica e trasferisce un valore da una fonte di fondi, detta input, ad una destinazione, detta output. La tabella 1.1 riporta la struttura dell'header di una transazione.
+\cite{masteringbitcoin,bitcoinofficialdoc,bitcoinwiki}Per capire Bitcoin è utile chiarire cosa sia effettivamente una transazione in Bitcoin e in cosa differisca da una “ordinaria”, ad esempio con carta di credito. Il concetto di transazione bancaria che conosciamo prevede una privacy ferrea e l’utilizzo della crittografia al fine di non far intercettare dati sensibili ai malintenzionati, mentre in questo caso la transazione è pubblicamente disponibile per intero in un registro pubblico immutabile e non contiene dati personali. Bitcoin ha praticamente trasformato i soldi in una struttura dati e fatto in modo che sia quasi impossibile per chiunque creare una transazione illeggittima, ma che allo stesso tempo sia facilissimo verificarne la validità. Una transazione è infatti una struttura dati che codifica e trasferisce un valore da una fonte di fondi, detta input, ad una destinazione, detta output. La tabella 1.1 riporta la struttura dell'header di una transazione.
 
 \begin{table}[ht]
 	\centering
@@ -146,7 +146,7 @@ Infine ci sono le cosiddette altcoins: forks del codice sorgente di Bitcoin, blo
 
 \subsection{Litecoin}
 Litecoin è una criptovaluta peer to peer che dal punto di vista tecnico condivide gran parte dell’implementazione di Bitcoin. Non è considerabile una fork di Bitcoin in senso stretto poiché non c’è stata la duplicazione della moneta, bensì una source code fork: è stato effettuato il fork del codice sorgente e del client open source Bitcoin Core e sono state effettuate delle modifiche sostanziali che si sono riflesse nella blockchain e le due valute non hanno uno storico comune. 
-Nasce nel 2011 ad opera dell’ex ingegnere MIT Charlie Lee, con l’intento dichiarato di diventare rispetto a Bitcoin “ciò che l’argento è rispetto all’oro”; già da questa frase si può comprendere come Litecoin sia una valuta che si presta a micropagamenti e operazioni più rapide rispetto a Bitcoin. Lee sostiene di non aver concepito Litecoin come sostituto di Bitcoin, bensì come complemento per risolvere alcune criticità da lui rilevate.
+Nasce nel 2011 ad opera dell’ex ingegnere MIT Charlie Lee, con l’intento dichiarato di diventare rispetto a Bitcoin “ciò che l’argento è rispetto all’oro”\cite{mediumltcsilver}; già da questa frase si può comprendere come Litecoin sia una valuta che si presta a micropagamenti e operazioni più rapide rispetto a Bitcoin. Lee sostiene di non aver concepito Litecoin come sostituto di Bitcoin, bensì come complemento per risolvere alcune criticità da lui rilevate.
 
 Pur condividendone per la maggior parte struttura e protocollo presenta alcune differenze fondamentali:
 
@@ -156,10 +156,32 @@ Scrypt implementa alcune funzioni che fanno un largo uso di memoria per ridurre 
 Questa scelta è stata fatta per evitare l’aumento esponenziale della difficoltà di mining in tempi brevi in un mercato in cui cominciavano già a prendere piede i suddetti dispositivi: Litecoin è nato oltre due anni dopo e la centralizzazione sarebbe stata un pericolo concreto.
 84 milioni di unità monetarie, il quadruplo rispetto a Bitcoin.
 
-I meccanismi di regolazione della difficoltà e di halving sono analoghi a Bitcoin ma i numeri cambiano: la difficoltà viene ricalcolata ogni 3.5 giorni -4 volte più velocemente- e l’halving è fissato ogni 840.000 blocchi -il quadruplo- in linea con la velocità e il numero di unità monetarie di Litecoin.
+I meccanismi di regolazione della difficoltà e di halving sono analoghi a Bitcoin ma i numeri cambiano: la difficoltà viene ricalcolata ogni 3.5 giorni -4 volte più velocemente- e l’halving è fissato ogni 840.000 blocchi -il quadruplo- in linea con la velocità e il numero di unità monetarie di Litecoin. La tabella \ref{ltcvsbtc} presenta una sintesi del confronto tecnico.
+
+\begin{table}
+\begin{tabular}{|c|c|c|}
+	\hline 
+	& \textbf{LTC} & \textbf{BTC} \\ 
+	\hline 
+\textbf{Unità monetarie}& 84 milioni & 21 milioni \\ 
+	\hline 
+\textbf{Tempo gen. blocco}	& 2.5 minuti & 10 minuti \\ 
+	\hline 
+\textbf{Algoritmo hashing}	& Scrypt & SHA256 \\ 
+	\hline 
+\textbf{Halving}	& 840000 blocchi & 210000 blocchi \\ 
+	\hline 
+\textbf{Nascita}	& 7 Ottobre 2011 & 2 Gennaio 2009 \\ 
+	\hline 
+\textbf{Introduzione SegWit} & 10 Maggio 2017 & 23 Agosto 2017 \\
+\hline
+\end{tabular}
+\caption{Confronto tecnico tra LTC e BTC}
+\label{ltcvsbtc}
+\end{table} 
 
 \subsubsection{Qualche dato su Litecoin}
-Ad agosto 2018 risultano già minati e circolanti 57.000.000 Litecoin su un totale di 84.000.000 e il valore di un LTC fluttua intorno ai 60 euro.
+Ad agosto 2018 risultano già minati e circolanti 57.000.000 Litecoin su un totale di 84.000.000 -circa il 67\%- e il valore di un LTC fluttua intorno ai 60 euro\ref{coinmarketcap}.
 
 \begin{figure}[h!]
 	\centering

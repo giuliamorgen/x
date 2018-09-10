@@ -29,15 +29,14 @@ L’hashing power complessivo al momento dell’analisi corrente è circa 275 Te
 
 \begin{figure}[h]
 	\includegraphics[width=1.0\linewidth]{provahashratelog}
-	\caption{Litecoin Hashrate 2014-2018}
+	\caption{Litecoin Hashrate 2014-2018(Fonte:\url{bitinfocharts.com}).}
 	\label{fig:provahashratelog}
-	\footnote{bitinfocharts.com}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{LitecoinHashRateLIN}
-	\caption{Litecoin Hashrate 2018} 
+	\caption{Litecoin Hashrate 2018(Fonte:\url{bitinfocharts.com}).} 
 	\label{fig:litecoinhashratelin}
 	\footnote{bitinfocharts.com}
 \end{figure}
@@ -49,9 +48,8 @@ La suddivisione riportata in figura \ref{fig:hashingpower020818} è datata 02/08
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/HashingPower020818}
-	\caption{Stima della distribuzione istantanea dell'hash rate, dati del 02/08/2018}
+	\caption{Stima della distribuzione istantanea dell'hash rate, dati del 02/08/2018(Fonte:\url{litecoinpool.org}).}
 	\label{fig:hashingpower020818}
-	\footnote{fonte: litecoinpool.org}
 \end{figure}
 
 
@@ -72,7 +70,7 @@ txTable.insert(Seq(block.hash.toString(), convertDate(block.date), block.getMini
 })
 \end{lstlisting}
 
-Per ogni blocco nell’intervallo selezionato, si inserisce nella tabella l’hash del blocco, il timestamp, il pool che ha minato il blocco e un ulteriore campo relativo al merged mining (che tratterò nelle analisi successive). La funzione getMiningPool() fa parte dell’interfaccia Block, che in questo caso è overrided [?] da getLitecoinPool(txs.head). L’override effettuato per ogni blockchain permette di verificare per ogni criptovaluta la presenza di uno degli identificatori ad essa relativi.
+Per ogni blocco nell’intervallo selezionato, si inserisce nella tabella l’hash del blocco, il timestamp, il pool che ha minato il blocco e un ulteriore campo relativo al merged mining (che tratterò nelle analisi successive). La funzione getMiningPool() fa parte dell’interfaccia Block, che in questo caso è overrided da getLitecoinPool(txs.head). L’override effettuato per ogni blockchain permette di verificare per ogni criptovaluta la presenza di uno degli identificatori ad essa relativi.
 
 
 \subsection{Query}
@@ -133,9 +131,8 @@ Ho identificato il pattern esadecimale [fabe6d6d] che viene inserito nella coinb
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/mergedminingdiagramsemanticscholar}
-	\caption{Schema di funzionamento del merged mining}
+	\caption{Schema di funzionamento del merged mining(Fonte:\url{coincentral.com}).}
 	\label{fig:mergedminingdiagramsemanticscholar}
-	\footnote{fonte: coincentral.com}
 \end{figure}
 
 \subsection{Obiettivo dell’analisi}
@@ -280,9 +277,8 @@ Recentemente l’OP\_RETURN è stato utilizzato per inserire un header indicativ
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/before-after-segwit-medium}
-	\caption{Transazioni prima e dopo SegWit}
+	\caption{Transazioni prima e dopo SegWit(Fonte:\url{medium.com}).}
 	\label{fig:before-after-segwit-medium}
-	\footnote{Fonte: medium.com}
 \end{figure}
 
 
@@ -292,9 +288,8 @@ Il problema si è posto con la crescita dell’interesse verso l’utilizzo dell
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/segwitvsnonsegwit-medium}
-	\caption{Differenza tra blocco SegWit e non SegWit}
+	\caption{Differenza tra blocco SegWit e non SegWit(Fonte:\url{medium.com}).}
 	\label{fig:segwitvsnonsegwit-medium}
-	\footnote{Fonte: medium.com}
 \end{figure}
 
 
@@ -309,9 +304,8 @@ Si identificano le transazioni OP\_RETURN della blockchain. BlockAPI contiene un
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/ol-omnilayer-medium}
-	\caption{Struttura di un OP\_RETURN di Omni Layer}
+	\caption{Struttura di un OP\_RETURN di Omni Layer(Fonte:\url{medium.com}).}
 	\label{fig:ol-omnilayer-medium}
-	\footnote{medium.com}
 \end{figure}
 
 Su ciascuna di esse, in modo analogo a quanto fatto sulle coinbase per l’analisi dei mining pools, si effettua un parsing dell’output tramite il seguente script:
@@ -371,9 +365,8 @@ L’header della transazione “aa21a9ed” è un codice non-ascii che segnala l
 		39° e oltre	&  Dati opzionali non riguardanti il protocollo\\ 
 		\hline
 	\end{tabular}
-	\caption{Struttura OP\_RETURN SegWit (github ufficiale)}
+	\caption{Struttura OP\_RETURN SegWit (Fonte: github Bitcoin \cite{bip141}).}
 	\label{seg}
-	\footnote{Fonte: github ufficiale bitcoin, BIP141}
 \end{table} 
 
 \subsection{Risultati}

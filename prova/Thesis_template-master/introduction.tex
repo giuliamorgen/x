@@ -56,9 +56,8 @@ Per sicurezza e praticità si esegue un doppio hash: per prima cosa si calcola S
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\linewidth]{EcdsaToAddress-bstavroulakis}
-\caption{Processo di codifica di un indirizzo bitcoin}
+\caption{Processo di codifica di un indirizzo bitcoin(Fonte:\url{bstavroulakis.com})}
 \label{fig:ecdsatoaddress-bstavroulakis}
-\footnote{Fonte:bstavroulakis.com}
 \end{figure}
 
 
@@ -68,7 +67,7 @@ La blockchain è un registro pubblico e distribuito che tiene traccia di tutte l
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1.0\linewidth]{SimplifiedBlockchainBlockGeeks}
-\caption{Struttura semplificata di una blockchain (Fonte \url{blockgeeks.com})}
+\caption{Struttura semplificata di una blockchain (Fonte \url{blockgeeks.com}).}
 \label{fig:simplifiedblockchainblockgeeks}
 \end{figure}
 
@@ -91,7 +90,7 @@ La blockchain è una lista concatenata che contiene dati e un hash pointer che p
 	      4        &           nonce            &     uint32\_t      & 
 	      Numero arbitrario, modificabile dal miner per rispettare nBits \\ \hline
 \end{tabular}}
-\caption{Struttura dell'header di un blocco Bitcoin (documentazione ufficiale bitcoin.org)}
+\caption{Struttura dell'header di un blocco Bitcoin (documentazione ufficiale \cite{bitcoinofficialdoc}}
 \end{table}
 
 
@@ -111,9 +110,8 @@ A titolo d’esempio, riporto la stima di quanto costerebbe sferrare un attacco 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.0\linewidth]{51cost2therevenge}	
-\caption{Costo stimato (02/08/2018) di un attacco alle principali criptovalute}
+\caption{Costo stimato (02/08/2018) di un attacco alle principali criptovalute(Fonte:\url{crypto51.app}).}
 \label{fig:51cost2therevenge}
-\footnote{Fonte: crypto51.app}
 \end{figure}
 
 
@@ -134,9 +132,8 @@ Infine ci sono le cosiddette altcoins: forks del codice sorgente di Bitcoin, blo
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/altcoinsoftforksetc}
-	\caption{Classificazione delle blockchain derivanti dalla codebase di Bitcoin.}
+	\caption{Classificazione delle blockchain derivanti dalla codebase di Bitcoin. (Fonte:\url{medium.com}).}
 	\label{fig:altcoinsoftforksetc}
-	\footnote{Fonte medium.com}
 \end{figure}
 
 
@@ -148,14 +145,16 @@ Litecoin è una criptovaluta peer to peer che dal punto di vista tecnico condivi
 Nasce nel 2011 ad opera dell’ex ingegnere MIT Charlie Lee, con l’intento dichiarato di diventare rispetto a Bitcoin “ciò che l’argento è rispetto all’oro”\cite{mediumltcsilver}; già da questa frase si può comprendere come Litecoin sia una valuta che si presta a micropagamenti e operazioni più rapide rispetto a Bitcoin. Lee sostiene di non aver concepito Litecoin come sostituto di Bitcoin, bensì come complemento per risolvere alcune criticità da lui rilevate.
 
 Pur condividendone per la maggior parte struttura e protocollo presenta alcune differenze fondamentali:
-
-Velocità: nel network Litecoin un blocco viene aggiunto alla Blockchain circa ogni 2.5 minuti contro i 10 di Bitcoin quadruplicando la velocità di creazione dei blocchi. Questo implica la possibilità di confermare le transazioni molto più rapidamente e a costi minori, nonché una minor congestione di rete e una riduzione del pericolo di attacchi double-spending a causa della finestra temporale utile ridotta.
-La proof of work utilizza l’algoritmo Scrypt: per ridurre il pericolo di centralizzazione del calcolo nei nodi che possono permettersi hashing powers enormi tramite hardware pre-esistente specializzato per il mining.
+\begin{itemize}
+\item Velocità: nel network Litecoin un blocco viene aggiunto alla Blockchain circa ogni 2.5 minuti contro i 10 di Bitcoin quadruplicando la velocità di creazione dei blocchi. Questo implica la possibilità di confermare le transazioni molto più rapidamente e a costi minori, nonché una minor congestione di rete e una riduzione del pericolo di attacchi double-spending a causa della finestra temporale utile ridotta.
+\item La proof of work utilizza l’algoritmo Scrypt: per ridurre il pericolo di centralizzazione del calcolo nei nodi che possono permettersi hashing powers enormi tramite hardware pre-esistente specializzato per il mining.
 Scrypt implementa alcune funzioni che fanno un largo uso di memoria per ridurre drasticamente l’efficienza dei circuiti logici tipici degli ASIC, privi di cache e ottimizzati per il mining intensivo. Trattandosi di un problema memory-hard sono privilegiate grandi quantità di RAM veloce. 
 Questa scelta è stata fatta per evitare l’aumento esponenziale della difficoltà di mining in tempi brevi in un mercato in cui cominciavano già a prendere piede i suddetti dispositivi: Litecoin è nato oltre due anni dopo e la centralizzazione sarebbe stata un pericolo concreto.
-84 milioni di unità monetarie, il quadruplo rispetto a Bitcoin.
+\item 84 milioni di unità monetarie, il quadruplo rispetto a Bitcoin.
+\item I meccanismi di regolazione della difficoltà e di halving sono analoghi a Bitcoin ma i numeri cambiano: la difficoltà viene ricalcolata ogni 3.5 giorni -4 volte più velocemente- e l’halving è fissato ogni 840.000 blocchi -il quadruplo- in linea con la velocità e il numero di unità monetarie di Litecoin.
+\end{itemize}
 
-I meccanismi di regolazione della difficoltà e di halving sono analoghi a Bitcoin ma i numeri cambiano: la difficoltà viene ricalcolata ogni 3.5 giorni -4 volte più velocemente- e l’halving è fissato ogni 840.000 blocchi -il quadruplo- in linea con la velocità e il numero di unità monetarie di Litecoin. La tabella \ref{ltcvsbtc} presenta una sintesi del confronto tecnico.
+ La tabella \ref{ltcvsbtc} presenta una sintesi del confronto tecnico.
 \cite{litecoinreview}
 \begin{table}
 \begin{tabular}{|c|c|c|}
@@ -185,7 +184,7 @@ Ad agosto 2018 risultano già minati e circolanti 57.000.000 Litecoin su un tota
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{images/LitecoinCoinMarketCap}
-	\caption{Confronto tra gli andamenti di mercato di Bitcoin e Litecoin (Fonte coinmarketcap.com).}
+	\caption{Confronto tra gli andamenti di mercato di Bitcoin e Litecoin (Fonte \url{coinmarketcap.com}).}
 	\label{fig:litecoincoinmarketcap}
 \end{figure}
 

@@ -1,5 +1,5 @@
 
-\chapter{Analisi}
+\chapter{Analisi}\label{sec:analisi}
 
 \lstset{frame=tb,
 	language=SQL,
@@ -286,7 +286,7 @@ Recentemente l’OP\_RETURN è stato utilizzato per inserire un header indicativ
 \end{figure}
 
 
-Il problema si è posto con la crescita dell’interesse verso l’utilizzo delle Blockchain, in quanto ogni blocco di transazioni deve rispettare il limite massimo di 1MB e questo ha cominciato a causare congestione e ritardi sui network. Talvolta i tempi di attesa sono stati nell’ordine delle ore. Inoltre un rischio notevole per la sicurezza era rappresentato dalla malleabilità, ossia la possibilità che il destinatario intercettasse l’ID della transazione del mittente modificandola a suo favore. Queste ragioni hanno portato alla separazione (da qui Segregated) della firma digitale (Witness): i dati della firma digitale, che fino ad ora occupavano fino al 65\% dello spazio della transazione, sono ora separati e la transazione contiene un puntatore ad essi affinché il software possa trattare indipendentemente le due parti.
+Il problema si è posto con la crescita dell’interesse verso l’utilizzo delle Blockchain, in quanto ogni blocco di transazioni deve rispettare il limite massimo di 1MB e questo ha cominciato a causare congestione e ritardi sui network. Talvolta i tempi di attesa sono stati nell’ordine delle ore. Inoltre un rischio notevole per la sicurezza era rappresentato dalla malleabilità, ossia la possibilità che il destinatario intercettasse l’ID della transazione del mittente modificandola a suo favore. Queste ragioni hanno portato alla separazione (da qui Segregated) della firma digitale (Witness): i dati della firma digitale, che fino ad ora occupavano fino al 65\% dello spazio della transazione, sono ora separati e la transazione contiene un puntatore ad essi affinché il software possa trattare indipendentemente le due parti. Al contrario di quel che ci si aspetterebbe, il network Litecoin l'ha implementato 3 mesi prima di quello Bitcoin (10 maggio 2017 contro il 23 agosto 2017)
 
 
 \begin{figure}[h]
@@ -294,7 +294,7 @@ Il problema si è posto con la crescita dell’interesse verso l’utilizzo dell
 	\includegraphics[width=1.0\linewidth]{images/segwitvsnonsegwit-medium}
 	\caption{Differenza tra blocco SegWit e non SegWit}
 	\label{fig:segwitvsnonsegwit-medium}
-	\footnote{fonte medium.com}
+	\footnote{Fonte: medium.com}
 \end{figure}
 
 

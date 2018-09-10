@@ -43,7 +43,7 @@ L’hashing power complessivo al momento dell’analisi corrente è circa 275 Te
 \end{figure}
 
 
-La suddivisione riportata in seguito è datata 02/08/2018, è limitatamente indicativa nel tempo e presenta un margine d’errore di qualche punto percentuale: i dati istantanei sulla distribuzione dell’hashing power sulla rete sono molto variabili poiché l’unico modo per ottenerli sono delle stime effettuate sulla base della velocità del network nel processare i nuovi blocchi e delle indicazioni fornite dai pools stessi. Tuttavia la loro osservazione fornisce dati utili per comprendere meglio i risultati delle analisi.
+La suddivisione riportata in figura \ref{fig:hashingpower020818} è datata 02/08/2018, è poco indicativa nel tempo e presenta un margine d’errore di qualche punto percentuale: i dati istantanei sulla distribuzione dell’hashing power sulla rete sono molto variabili poiché l’unico modo per ottenerli sono delle stime effettuate sulla base della velocità del network nel processare i nuovi blocchi e delle indicazioni fornite dai pools stessi. Tuttavia la loro osservazione fornisce dati utili per comprendere meglio i risultati delle analisi.
 
 
 \begin{figure}[h!]
@@ -126,7 +126,7 @@ In conclusione: circa il 60\% dell’hashing power del 2017 è risultato concent
 
 \section{Merged Mining}
 \subsection{Contesto}
-Il merged mining, noto anche come Auxiliary Proof of Work, permette di minare contemporaneamente due criptovalute che utilizzino lo stesso algoritmo di hashing (Scrypt nel caso di Litecoin).
+Il merged mining, noto anche come Auxiliary Proof of Work, permette di minare contemporaneamente due criptovalute che utilizzino lo stesso algoritmo di hashing.\cite{mmcoincentral} Nel caso di Litecoin si tratta dell'algoritmo Scrypt.
 I calcoli vengono svolti e sfruttati per due blockchain, il che permette alle blockchain minori di aumentare il proprio potere di hashing. In questo caso il merged mining riguarda Litecoin e Dogecoin, entrambe criptovalute il cui mining è basato su Scrypt.
 Ho identificato il pattern esadecimale [fabe6d6d] che viene inserito nella coinbase per segnalare che il blocco è frutto di merged mining.
 
@@ -135,7 +135,7 @@ Ho identificato il pattern esadecimale [fabe6d6d] che viene inserito nella coinb
 	\includegraphics[width=1.0\linewidth]{images/mergedminingdiagramsemanticscholar}
 	\caption{Schema di funzionamento del merged mining}
 	\label{fig:mergedminingdiagramsemanticscholar}
-	\footnote{fonte: Semantic Scholar}
+	\footnote{fonte: coincentral.com}
 \end{figure}
 
 \subsection{Obiettivo dell’analisi}
